@@ -26,6 +26,9 @@
         <div id="main">
             @{{ message }}
             <span v-bind:class="className" v-if="isShow">count: @{{ data}}</span>
+            <ul>
+                <li v-for="(product, index) in products" v-if="index%2==0">@{{ product.name }}, stt: @{{ index }}</li>
+            </ul>
             <button onclick="changeColorRed()">Red</button>
             <button onclick="changeColorGreen()">Green</button>
           </div>
@@ -39,6 +42,11 @@
                     className: '',
                     data: 65,
                     isShow: true,
+                    products: [
+                        {name: 'Máy tính',price: 100000},
+                        {name: 'Quạt điện',price: 40000},
+                        {name: 'Iphone',price: 70000},
+                    ],
                 }
             })
             const changeColorRed = () => {
